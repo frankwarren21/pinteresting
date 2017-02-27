@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower');
+
+$font-family-sans-serif:         'Indie Flower', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$body-bg:                         #95a5a6;
+$navbar-default-bg:               #2c3e50;
+$navbar-default-link-color:       #ecf0f1;
+$brand-primary:                   #c0392b;
+$jumbotron-bg:                    #34495e;
+$jumbotron-color:                 #ecf0f1;
+@import "bootstrap";
+
+
+.center {
+     text-align: center;
+}
+
+.navbar-brand {
+     font-weight: bold;
+}

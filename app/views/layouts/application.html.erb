@@ -3,13 +3,16 @@
   <head>
     <title>Pinteresting</title>
     <%= csrf_meta_tags %>
+    <meta name="viewprot" content="width=device-width, intital-scale=1.0">
+</head>
+<body>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-<%= link_to "About us", about_path %>
-<%= link_to "home", root_path %>
-  <body>
+<%= render 'layouts/header' %>
+<div class="container">
+  <% flash.each do |name, msg| %>
+    <%= content_tag(:div, msg, class:"alert alert-info") %>
+    <%end%>
     <%= yield %>
+  </div>
   </body>
 </html>
