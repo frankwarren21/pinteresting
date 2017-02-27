@@ -8,7 +8,7 @@ end
 
 
 gem 'rails', '~> 5.0.1'
-gem 'sqlite3'
+
 gem 'puma', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
@@ -20,9 +20,16 @@ gem 'bootstrap-sass'
 gem 'devise', '~> 4.2'
 
 
-group :development, :test do
 
+
+group :development, :test do
+  gem 'sqlite3'
   gem 'byebug', platform: :mri
+end
+
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
 end
 
 group :development do
