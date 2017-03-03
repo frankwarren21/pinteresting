@@ -10,7 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170227235014) do
+ActiveRecord::Schema.define(version: 20170301211524) do
+
+  create_table "eateries", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.string   "phone"
+    t.string   "address_street"
+    t.string   "address_city"
+    t.string   "address_state"
+    t.string   "address_zip"
+    t.string   "website"
+    t.string   "image_url"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_eateries_on_user_id"
+  end
 
   create_table "installs", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -27,6 +43,28 @@ ActiveRecord::Schema.define(version: 20170227235014) do
     t.datetime "updated_at",                          null: false
     t.index ["email"], name: "index_installs_on_email", unique: true
     t.index ["reset_password_token"], name: "index_installs_on_reset_password_token", unique: true
+  end
+
+  create_table "pins", force: :cascade do |t|
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "reservations", force: :cascade do |t|
+    t.string   "email"
+    t.date     "date"
+    t.string   "time"
+    t.integer  "party_size"
+    t.string   "comments"
+    t.string   "phone"
+    t.integer  "restrarant_id"
+    t.integer  "user_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.         "eatery"
+    t.index ["restrarant_id"], name: "index_reservations_on_restrarant_id"
+    t.index ["user_id"], name: "index_reservations_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

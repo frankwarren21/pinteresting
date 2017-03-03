@@ -1,0 +1,9 @@
+<h1><%= @eatery.name %></h1>
+<h3><%= @eatery.phone %></h3>
+
+
+<p id="notice"><%= notice %></p>
+<%= render 'reservations/new' %>
+
+<%= link_to 'Edit', edit_eatery_path(@eatery) %> |
+<%= link_to 'Back', eateries_path %>
