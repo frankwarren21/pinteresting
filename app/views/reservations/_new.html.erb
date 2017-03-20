@@ -1,16 +1,15 @@
-<h1>Make a Reservation</h1>
-<% if @reservation.errors.any? %>
-  <ul class="error_list">
-      <% Qreservation.errors.full_messages.each do |msg| %>
-      <Li><%= msg %></li>
-        <% end %>
-      </ul>
-      <% end %>
+  <% if @reservation.errors.any? %>
+    <ul class="error_list">
+      <% @reservation.errors.full_messages.each do |msg| %>
+        <Li><%= msg %></li>
+    <% end %>
+<% end %>
+    </ul>
 
 <%= form_for(@reservation) do |f| %>
   <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.label :eatery %><br>
+    <%= f.text_field :eatery %>
   </div>
   <div class="field">
     <%= f.label :email %><br>
@@ -26,16 +25,16 @@
   </div>
   <div class="field">
     <%= f.label :time %><br>
-    <%= f.time_select :time %>
+    <%= f.time_select :time, ampm: true %>
   </div>
-
-<%= f.hidden_field :eatery, :value => @eatery.id %>
-<br>
+<div>
+   <%= f.hidden_field :eatery_id, :value => @eatery %>
+   <br>
   <div class="actions">
     <%= f.submit %>
   </div>
 <%end%>
 
-<%= render 'form', reservation: @reservation %>
+
 
 <%= link_to 'Back', reservations_path %>

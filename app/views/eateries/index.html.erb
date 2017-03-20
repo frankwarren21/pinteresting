@@ -1,19 +1,29 @@
+
 <p id="notice"><%= notice %></p>
+
+<div class ="jumbotron center">
+
+
 
 <h1>Eateries Listing</h1>
 
-<table>
+<table class="tables">
   <thead>
     <tr>
       <th colspan="3"></th>
     </tr>
   </thead>
+
+  <div class ="center">
 <tbody>
     <% @eateries.each do |eatery| %>
+
       <tr>
+        <td><%= link_to eatery.name, eatery %><td><td id="notice"><%= notice %></td>
         <td><%= link_to 'show', eatery %></td>
         <td><%= link_to 'Edit', edit_eatery_path(eatery) %></td>
         <td><%= link_to 'Destroy', eatery, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'New Reservation', new_reservation_path %></td>
       </tr>
     <% end %>
   </tbody>
@@ -22,3 +32,6 @@
 <br>
 
 <%= link_to 'New Eatery', new_eatery_path %>
+
+<div>
+  <dvv>
